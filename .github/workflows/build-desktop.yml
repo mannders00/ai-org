@@ -67,6 +67,11 @@ jobs:
             host: ubuntu-24.04
             target: x86_64-unknown-linux-gnu
             platform_flag: --linux
+          - label: linux-arm64
+            host: ubuntu-24.04
+            target: aarch64-unknown-linux-gnu
+            platform_flag: --linux --arm64
+            extra_setup: qemu
     runs-on: ${{ matrix.settings.host }}
     steps:
       - uses: actions/checkout@v4
@@ -80,6 +85,10 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: "24"
+
+      - name: Set up QEMU for ARM64 cross-compilation
+        if: matrix.settings.extra_setup == 'qemu'
+        uses: docker/setup-qemu-action@v3
 
       - name: Cache apt packages
         if: contains(matrix.settings.target, 'linux')
