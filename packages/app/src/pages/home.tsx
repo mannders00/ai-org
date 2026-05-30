@@ -178,12 +178,16 @@ function HomeDesign() {
     }
 
     if (platform.openDirectoryPickerDialog && server.isLocal()) {
-      const result = await platform.openDirectoryPickerDialog?.({
-        title: language.t("command.project.open"),
-        multiple: true,
-      })
-      resolve(result)
-      return
+      try {
+        const result = await platform.openDirectoryPickerDialog({
+          title: language.t("command.project.open"),
+          multiple: true,
+        })
+        resolve(result)
+        return
+      } catch (err) {
+        console.error("[opencode] native directory picker failed:", err)
+      }
     }
 
     dialog.show(
@@ -720,11 +724,18 @@ function LegacyHome() {
     }
 
     if (platform.openDirectoryPickerDialog && server.isLocal()) {
-      const result = await platform.openDirectoryPickerDialog?.({
-        title: language.t("command.project.open"),
-        multiple: true,
-      })
-      resolve(result)
+      try {
+        const result = await platform.openDirectoryPickerDialog({
+          title: language.t("command.project.open"),
+          multiple: true,
+        })
+        resolve(result)
+      } catch {
+        dialog.show(
+          () => <DialogSelectDirectory multiple={true} onSelect={resolve} />,
+          () => resolve(null),
+        )
+      }
     } else {
       dialog.show(
         () => <DialogSelectDirectory multiple={true} onSelect={resolve} />,

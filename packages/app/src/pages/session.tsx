@@ -54,6 +54,7 @@ import {
 import { MessageTimeline } from "@/pages/session/message-timeline"
 import { type DiffStyle, SessionReviewTab, type SessionReviewTabProps } from "@/pages/session/review-tab"
 import { SessionAgendaTab } from "@/pages/session/agenda-tab"
+import { SessionFilesTab } from "@/pages/session/files-tab"
 import { useSessionLayout } from "@/pages/session/session-layout"
 import { syncSessionModel } from "@/pages/session/session-model-helpers"
 import { SessionSidePanel } from "@/pages/session/session-side-panel"
@@ -1037,6 +1038,19 @@ export default function Page() {
     </div>
   )
 
+  const filesPanel = () => (
+    <div class="flex flex-col h-full overflow-hidden bg-background-stronger contain-strict">
+      <SessionFilesTab onFileClick={(path) => {
+        openReviewPanel()
+        const tab = file.tab(path)
+        tabs().open(tab)
+        tabs().setActive(tab)
+        file.load(path)
+        showAllFiles()
+      }} />
+    </div>
+  )
+
   createEffect(
     on(
       activeFileTab,
@@ -1839,6 +1853,7 @@ export default function Page() {
           reviewCount={reviewCount}
           reviewPanel={reviewPanel}
           agendaPanel={agendaPanel}
+          filesPanel={filesPanel}
           activeDiff={tree.activeDiff}
           focusReviewDiff={focusReviewDiff}
           reviewSnap={ui.reviewSnap}

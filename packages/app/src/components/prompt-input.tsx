@@ -1369,8 +1369,13 @@ export const PromptInput: Component<PromptInputProps> = (props) => {
       selectProject(directory)
     }
     if (platform.openDirectoryPickerDialog && server.isLocal()) {
-      select(await platform.openDirectoryPickerDialog({ title: language.t("command.project.open") }))
-      return
+      try {
+        const result = await platform.openDirectoryPickerDialog({ title: language.t("command.project.open") })
+        select(result)
+        return
+      } catch {
+        // native dialog failed, fall through to in-app dialog
+      }
     }
     void import("@/components/dialog-select-directory").then((x) => {
       dialog.show(

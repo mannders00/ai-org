@@ -95,7 +95,7 @@ export function pruneSessionKeys(input: {
 
 function nextSessionTabsForOpen(current: SessionTabs | undefined, tab: string): SessionTabs {
   const all = current?.all ?? []
-  if (tab === "review" || tab === "agenda") return { all: all.filter((x) => x !== tab), active: tab }
+  if (tab === "review" || tab === "agenda" || tab === "files") return { all: all.filter((x) => x !== tab), active: tab }
   if (tab === "context") return { all: [tab, ...all.filter((x) => x !== tab)], active: tab }
   if (!all.includes(tab)) return { all: [...all, tab], active: tab }
   return { all, active: tab }

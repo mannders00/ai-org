@@ -16,6 +16,7 @@ import FileTree from "@/components/file-tree"
 import { SessionContextUsage } from "@/components/session-context-usage"
 import { SessionContextTab, SortableTab, FileVisual } from "@/components/session"
 import { SessionAgendaTab } from "@/pages/session/agenda-tab"
+import { SessionFilesTab } from "@/pages/session/files-tab"
 import { useCommand } from "@/context/command"
 import { useFile, type SelectedLineRange } from "@/context/file"
 import { useLanguage } from "@/context/language"
@@ -44,6 +45,7 @@ export function SessionSidePanel(props: {
   reviewCount: () => number
   reviewPanel: () => JSX.Element
   agendaPanel: () => JSX.Element
+  filesPanel: () => JSX.Element
   activeDiff?: string
   focusReviewDiff: (path: string) => void
   reviewSnap: boolean
@@ -68,6 +70,7 @@ export function SessionSidePanel(props: {
   const open = createMemo(() => reviewOpen() || fileOpen())
   const reviewTab = createMemo(() => isDesktop())
   const agendaTab = createMemo(() => isDesktop())
+  const filesTab = createMemo(() => isDesktop())
   const panelWidth = createMemo(() => {
     if (!open()) return "0px"
     if (reviewOpen()) return `calc(100% - ${layout.session.width()}px)`
@@ -143,6 +146,7 @@ export function SessionSidePanel(props: {
     review: reviewTab,
     hasReview: props.canReview,
     agenda: agendaTab,
+    files: filesTab,
   })
   const contextOpen = tabState.contextOpen
   const openedTabs = tabState.openedTabs
@@ -265,6 +269,13 @@ export function SessionSidePanel(props: {
                             </div>
                           </Tabs.Trigger>
                         </Show>
+                        <Show when={filesTab()}>
+                          <Tabs.Trigger value="files">
+                            <div class="flex items-center gap-1.5">
+                              <div>{language.t("session.tab.files")}</div>
+                            </div>
+                          </Tabs.Trigger>
+                        </Show>
                         <Show when={contextOpen()}>
                           <Tabs.Trigger
                             value="context"
@@ -328,6 +339,12 @@ export function SessionSidePanel(props: {
                     <Show when={agendaTab()}>
                       <Tabs.Content value="agenda" class="flex flex-col h-full overflow-hidden contain-strict">
                         <Show when={activeTab() === "agenda"}>{props.agendaPanel()}</Show>
+                      </Tabs.Content>
+                    </Show>
+
+                    <Show when={filesTab()}>
+                      <Tabs.Content value="files" class="flex flex-col h-full overflow-hidden contain-strict">
+                        <Show when={activeTab() === "files"}>{props.filesPanel()}</Show>
                       </Tabs.Content>
                     </Show>
 
