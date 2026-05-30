@@ -3,7 +3,7 @@
     <img src="ai-org-logo-original.png" alt="AI-org logo">
   </a>
 </p>
-<p align="center">AI-org, a fork of opencode optimized for org-mode.</p>
+<p align="center">AI-org, форк opencode, оптимізований для org-mode.</p>
 <p align="center">
   <a href="https://discord.gg/HrhjpDUnRE"><img alt="Discord" src="https://img.shields.io/discord/1391832426048651334?style=flat-square&label=discord" /></a>
   <a href="https://github.com/mannders00/ai-org/actions/workflows/build-desktop.yml"><img alt="Build status" src="https://img.shields.io/github/actions/workflow/status/mannders00/ai-org/build-desktop.yml?style=flat-square&branch=dev" /></a>
@@ -38,6 +38,6 @@
 
 ---
 
-- Website: [ai-org.net](https://ai-org.net)
+- Сайт: [ai-org.net](https://ai-org.net)
 - Discord: [discord.gg/HrhjpDUnRE](https://discord.gg/HrhjpDUnRE)
-- Contact: [matt@masoftware.net](mailto:matt@masoftware.net)
+- Контакти: [matt@masoftware.net](mailto:matt@masoftware.net)
