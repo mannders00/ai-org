@@ -42,4 +42,4 @@
 - Discord：[discord.gg/HrhjpDUnRE](https://discord.gg/HrhjpDUnRE)
 - 联系方式：[matt@masoftware.net](mailto:matt@masoftware.net)
 
-AI-org™ is a product of MA Software.
+© MA Software. All rights reserved.
