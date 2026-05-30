@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://ai-org.net">
-    <img src="ai-org-logo-original.png" alt="AI-org logo">
+    <img src="ai-org-logo-original.png" alt="AI-org logo" width="120">
   </a>
 </p>
 <p align="center">AI-org, a fork of opencode optimized for org-mode.</p>
