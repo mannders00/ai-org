@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://opencode.ai">
-    <img src="ai-org-logo-original" alt="Logo do AI-org">
+    <img src="ai-org-logo-original.png" alt="Logo do AI-org">
   </a>
 </p>
 <p align="center">AI-org, a fork of opencode optimized for org-mode.</p>
@@ -35,7 +35,7 @@
   <a href="README.vi.md">Tiếng Việt</a>
 </p>
 
-[![AI-org Terminal UI](screenshot)](https://opencode.ai)
+[![AI-org Terminal UI](screenshot.png)](https://opencode.ai)
 
 ---
 
