@@ -53,6 +53,7 @@ import {
 } from "@/pages/session/helpers"
 import { MessageTimeline } from "@/pages/session/message-timeline"
 import { type DiffStyle, SessionReviewTab, type SessionReviewTabProps } from "@/pages/session/review-tab"
+import { SessionAgendaTab } from "@/pages/session/agenda-tab"
 import { useSessionLayout } from "@/pages/session/session-layout"
 import { syncSessionModel } from "@/pages/session/session-model-helpers"
 import { SessionSidePanel } from "@/pages/session/session-side-panel"
@@ -1030,6 +1031,12 @@ export default function Page() {
     </div>
   )
 
+  const agendaPanel = () => (
+    <div class="flex flex-col h-full overflow-hidden bg-background-stronger contain-strict">
+      <SessionAgendaTab />
+    </div>
+  )
+
   createEffect(
     on(
       activeFileTab,
@@ -1831,6 +1838,7 @@ export default function Page() {
           hasReview={hasReview}
           reviewCount={reviewCount}
           reviewPanel={reviewPanel}
+          agendaPanel={agendaPanel}
           activeDiff={tree.activeDiff}
           focusReviewDiff={focusReviewDiff}
           reviewSnap={ui.reviewSnap}

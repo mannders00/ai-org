@@ -15,6 +15,7 @@ import { useDialog } from "@opencode-ai/ui/context/dialog"
 import FileTree from "@/components/file-tree"
 import { SessionContextUsage } from "@/components/session-context-usage"
 import { SessionContextTab, SortableTab, FileVisual } from "@/components/session"
+import { SessionAgendaTab } from "@/pages/session/agenda-tab"
 import { useCommand } from "@/context/command"
 import { useFile, type SelectedLineRange } from "@/context/file"
 import { useLanguage } from "@/context/language"
@@ -42,6 +43,7 @@ export function SessionSidePanel(props: {
   hasReview: () => boolean
   reviewCount: () => number
   reviewPanel: () => JSX.Element
+  agendaPanel: () => JSX.Element
   activeDiff?: string
   focusReviewDiff: (path: string) => void
   reviewSnap: boolean
@@ -65,6 +67,7 @@ export function SessionSidePanel(props: {
   const fileOpen = createMemo(() => isDesktop() && shown() && layout.fileTree.opened())
   const open = createMemo(() => reviewOpen() || fileOpen())
   const reviewTab = createMemo(() => isDesktop())
+  const agendaTab = createMemo(() => isDesktop())
   const panelWidth = createMemo(() => {
     if (!open()) return "0px"
     if (reviewOpen()) return `calc(100% - ${layout.session.width()}px)`
@@ -139,6 +142,7 @@ export function SessionSidePanel(props: {
     normalizeTab,
     review: reviewTab,
     hasReview: props.canReview,
+    agenda: agendaTab,
   })
   const contextOpen = tabState.contextOpen
   const openedTabs = tabState.openedTabs
@@ -254,6 +258,13 @@ export function SessionSidePanel(props: {
                             </div>
                           </Tabs.Trigger>
                         </Show>
+                        <Show when={agendaTab()}>
+                          <Tabs.Trigger value="agenda">
+                            <div class="flex items-center gap-1.5">
+                              <div>{language.t("session.tab.agenda")}</div>
+                            </div>
+                          </Tabs.Trigger>
+                        </Show>
                         <Show when={contextOpen()}>
                           <Tabs.Trigger
                             value="context"
@@ -311,6 +322,12 @@ export function SessionSidePanel(props: {
                     <Show when={reviewTab() && props.canReview()}>
                       <Tabs.Content value="review" class="flex flex-col h-full overflow-hidden contain-strict">
                         <Show when={reviewOpen() && activeTab() === "review"}>{props.reviewPanel()}</Show>
+                      </Tabs.Content>
+                    </Show>
+
+                    <Show when={agendaTab()}>
+                      <Tabs.Content value="agenda" class="flex flex-col h-full overflow-hidden contain-strict">
+                        <Show when={activeTab() === "agenda"}>{props.agendaPanel()}</Show>
                       </Tabs.Content>
                     </Show>
 
