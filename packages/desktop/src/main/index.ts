@@ -163,6 +163,7 @@ const main = Effect.gen(function* () {
   const features = app.commandLine.getSwitchValue("enable-features")
   app.commandLine.appendSwitch("enable-features", features ? `${jsCallStackFeature},${features}` : jsCallStackFeature)
   if (!app.isPackaged) app.commandLine.appendSwitch("remote-debugging-port", "9222")
+  if (process.platform === "linux" && app.isPackaged) app.commandLine.appendSwitch("no-sandbox")
 
   if (!app.requestSingleInstanceLock()) {
     app.quit()
