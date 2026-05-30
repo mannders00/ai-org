@@ -41,3 +41,5 @@
 - 웹사이트: [ai-org.net](https://ai-org.net)
 - Discord: [discord.gg/HrhjpDUnRE](https://discord.gg/HrhjpDUnRE)
 - 연락처: [matt@masoftware.net](mailto:matt@masoftware.net)
+
+AI-org™ is a product of MA Software.

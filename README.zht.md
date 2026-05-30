@@ -41,3 +41,5 @@
 - 網站：[ai-org.net](https://ai-org.net)
 - Discord：[discord.gg/HrhjpDUnRE](https://discord.gg/HrhjpDUnRE)
 - 聯絡方式：[matt@masoftware.net](mailto:matt@masoftware.net)
+
+AI-org™ is a product of MA Software.
