@@ -38,6 +38,9 @@
 
 ---
 
+> **Want the fastest path to a working system?**
+> Get the [official AI-org template on Gumroad](https://masoftwarematt.gumroad.com/l/ai-org). It includes the battle-tested `AGENTS.md`, `HUMAN.md`, and complete project scaffolding I use daily.
+
 - Website: [ai-org.net](https://ai-org.net)
 - Discord: [discord.gg/HrhjpDUnRE](https://discord.gg/HrhjpDUnRE)
 - Contact: [matt@masoftware.net](mailto:matt@masoftware.net)
