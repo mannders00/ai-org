@@ -1,0 +1,186 @@
+name: build-desktop
+
+on:
+  push:
+    branches:
+      - dev
+      - main
+  pull_request:
+  workflow_dispatch:
+    inputs:
+      channel:
+        description: "Release channel (dev, beta, or prod)"
+        required: false
+        default: dev
+        type: choice
+        options:
+          - dev
+          - beta
+          - prod
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: write
+  id-token: write
+
+env:
+  OPENCODE_CHANNEL: ${{ github.event.inputs.channel || 'dev' }}
+
+jobs:
+  typecheck:
+    name: Typecheck
+    runs-on: blacksmith-4vcpu-ubuntu-2404
+    steps:
+      - uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744 # v3.6.0
+
+      - uses: ./.github/actions/setup-bun
+
+      - name: Typecheck
+        run: bun turbo typecheck
+
+  build-desktop:
+    name: Build (${{ matrix.settings.label }})
+    needs:
+      - typecheck
+    strategy:
+      fail-fast: false
+      matrix:
+        settings:
+          - label: macos-arm64
+            host: macos-26
+            target: aarch64-apple-darwin
+            platform_flag: --mac --arm64
+            bun_install_flags: --os=darwin --cpu=arm64
+          - label: macos-x64
+            host: macos-26-intel
+            target: x86_64-apple-darwin
+            platform_flag: --mac --x64
+            bun_install_flags: --os=darwin --cpu=x64
+          - label: windows-arm64
+            host: windows-2025
+            target: aarch64-pc-windows-msvc
+            platform_flag: --win --arm64
+          - label: windows-x64
+            host: blacksmith-4vcpu-windows-2025
+            target: x86_64-pc-windows-msvc
+            platform_flag: --win
+          - label: linux-x64
+            host: blacksmith-4vcpu-ubuntu-2404
+            target: x86_64-unknown-linux-gnu
+            platform_flag: --linux
+          - label: linux-arm64
+            host: blacksmith-4vcpu-ubuntu-2404-arm
+            target: aarch64-unknown-linux-gnu
+            platform_flag: --linux --arm64
+    runs-on: ${{ matrix.settings.host }}
+    steps:
+      - uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744 # v3.6.0
+        with:
+          fetch-tags: true
+
+      - uses: ./.github/actions/setup-bun
+        with:
+          install-flags: ${{ matrix.settings.bun_install_flags }}
+
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd37d6820020 # v4.4.0
+        with:
+          node-version: "24"
+
+      - name: Cache apt packages
+        if: contains(matrix.settings.host, 'ubuntu')
+        uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4.3.0
+        with:
+          path: ~/apt-cache
+          key: ${{ runner.os }}-${{ matrix.settings.target }}-apt-desktop-${{ hashFiles('.github/workflows/build-desktop.yml') }}
+          restore-keys: |
+            ${{ runner.os }}-${{ matrix.settings.target }}-apt-desktop-
+
+      - name: Install Linux packaging dependencies
+        if: contains(matrix.settings.host, 'ubuntu')
+        run: |
+          mkdir -p ~/apt-cache && chmod -R a+rw ~/apt-cache
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends -o dir::cache::archives="$HOME/apt-cache" rpm
+          sudo chmod -R a+rw ~/apt-cache
+
+      - name: Prepare
+        run: bun ./scripts/prepare.ts
+        working-directory: packages/desktop
+        env:
+          OPENCODE_VERSION: "0.0.0-ci"
+          OPENCODE_CHANNEL: ${{ env.OPENCODE_CHANNEL }}
+          RUST_TARGET: ${{ matrix.settings.target }}
+
+      - name: Build
+        run: bun run build
+        working-directory: packages/desktop
+        env:
+          OPENCODE_CHANNEL: ${{ env.OPENCODE_CHANNEL }}
+
+      - name: Package
+        run: npx electron-builder ${{ matrix.settings.platform_flag }} --publish never --config electron-builder.config.ts
+        working-directory: packages/desktop
+        timeout-minutes: 30
+        env:
+          OPENCODE_CHANNEL: ${{ env.OPENCODE_CHANNEL }}
+
+      - name: List output artifacts
+        shell: bash
+        run: |
+          echo "## Desktop build artifacts (${{ matrix.settings.label }})" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "| File | Size |" >> $GITHUB_STEP_SUMMARY
+          echo "|------|------|" >> $GITHUB_STEP_SUMMARY
+          for f in packages/desktop/dist/aiorg-desktop-*; do
+            if [ -f "$f" ]; then
+              name=$(basename "$f")
+              size=$(du -h "$f" | cut -f1)
+              echo "| \`$name\` | $size |" >> $GITHUB_STEP_SUMMARY
+            fi
+          done
+
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: aiorg-desktop-${{ matrix.settings.target }}
+          path: packages/desktop/dist/aiorg-desktop-*
+          if-no-files-found: warn
+
+  sanity-check:
+    name: Sanity check
+    needs:
+      - build-desktop
+    runs-on: blacksmith-4vcpu-ubuntu-2404
+    if: always()
+    steps:
+      - name: Download all artifacts
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
+
+      - name: Check build results
+        shell: bash
+        run: |
+          echo "## Desktop build summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "Channel: ${{ env.OPENCODE_CHANNEL }}" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "| Platform | Artifacts |" >> $GITHUB_STEP_SUMMARY
+          echo "|----------|-----------|" >> $GITHUB_STEP_SUMMARY
+          for dir in aiorg-desktop-*/; do
+            if [ -d "$dir" ]; then
+              platform=$(basename "$dir")
+              count=$(find "$dir" -type f | wc -l | tr -d ' ')
+              echo "| $platform | $count files |" >> $GITHUB_STEP_SUMMARY
+            fi
+          done
+
+      - name: Check overall result
+        if: needs.build-desktop.result == 'failure'
+        run: |
+          echo "::error::One or more desktop builds failed"
+          exit 1
+
+      - name: All builds passed
+        if: needs.build-desktop.result == 'success'
+        run: echo "All desktop builds completed successfully"
