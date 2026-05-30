@@ -1,4 +1,4 @@
-export const deepLinkEvent = "aiorg:deep-link"
+export const deepLinkEvent = "ai-org:deep-link"
 
 const parseUrl = (input: string) => {
   if (!input.startsWith("ai-org://")) return

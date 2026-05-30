@@ -45,9 +45,9 @@ const APP_NAMES: Record<string, string> = {
   prod: "AI Org",
 }
 const APP_IDS: Record<string, string> = {
-  dev: "org.aiorg.desktop.dev",
-  beta: "org.aiorg.desktop.beta",
-  prod: "org.aiorg.desktop",
+  dev: "org.ai-org.desktop.dev",
+  beta: "org.ai-org.desktop.beta",
+  prod: "org.ai-org.desktop",
 }
 const TEST_ONBOARDING = process.env.OPENCODE_TEST_ONBOARDING === "1"
 const jsCallStackFeature = "DocumentPolicyIncludeJSCallStacksInCrashReports"
@@ -119,11 +119,11 @@ const main = Effect.gen(function* () {
 
   process.env.OPENCODE_DISABLE_EMBEDDED_WEB_UI = "true"
 
-  const appId = app.isPackaged ? APP_IDS[CHANNEL] : "org.aiorg.desktop.dev"
+  const appId = app.isPackaged ? APP_IDS[CHANNEL] : "org.ai-org.desktop.dev"
   const onboardingTestRoot = ((): string | undefined => {
     if (!TEST_ONBOARDING) return
 
-    const root = join(tmpdir(), `aiorg-onboarding-${randomUUID()}`)
+    const root = join(tmpdir(), `ai-org-onboarding-${randomUUID()}`)
     rmSync(root, { recursive: true, force: true })
     ;["data", "config", "cache", "state", "desktop", "session"].forEach((dir) =>
       mkdirSync(join(root, dir), { recursive: true }),

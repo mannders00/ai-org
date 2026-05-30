@@ -27,7 +27,7 @@ const channel = (() => {
 })()
 
 const getBase = (): Configuration => ({
-  artifactName: "aiorg-desktop-${os}-${arch}.${ext}",
+  artifactName: "ai-org-desktop-${os}-${arch}.${ext}",
   directories: {
     output: "dist",
     buildResources: "resources",
@@ -85,29 +85,29 @@ function getConfig() {
     case "dev": {
       return {
         ...base,
-        appId: "org.aiorg.desktop.dev",
+        appId: "org.ai-org.desktop.dev",
         productName: "AI Org Dev",
-        rpm: { packageName: "aiorg-dev" },
+        rpm: { packageName: "ai-org-dev" },
       }
     }
     case "beta": {
       return {
         ...base,
-        appId: "org.aiorg.desktop.beta",
+        appId: "org.ai-org.desktop.beta",
         productName: "AI Org Beta",
         protocols: { name: "AI Org Beta", schemes: ["ai-org"] },
         publish: { provider: "github", owner: "anomalyco", repo: "opencode-beta", channel: "latest" },
-        rpm: { packageName: "aiorg-beta" },
+        rpm: { packageName: "ai-org-beta" },
       }
     }
     case "prod": {
       return {
         ...base,
-        appId: "org.aiorg.desktop",
+        appId: "org.ai-org.desktop",
         productName: "AI Org",
         protocols: { name: "AI Org", schemes: ["ai-org"] },
         publish: { provider: "github", owner: "anomalyco", repo: "opencode", channel: "latest" },
-        rpm: { packageName: "aiorg" },
+        rpm: { packageName: "ai-org" },
       }
     }
   }

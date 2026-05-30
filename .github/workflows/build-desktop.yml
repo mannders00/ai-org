@@ -50,11 +50,6 @@ jobs:
             target: aarch64-apple-darwin
             platform_flag: --mac --arm64
             bun_install_flags: --os=darwin --cpu=arm64
-          - label: macos-x64
-            host: macos-13
-            target: x86_64-apple-darwin
-            platform_flag: --mac --x64
-            bun_install_flags: --os=darwin --cpu=x64
           - label: windows-arm64
             host: windows-2022
             target: aarch64-pc-windows-msvc
@@ -135,7 +130,7 @@ jobs:
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "| File | Size |" >> $GITHUB_STEP_SUMMARY
           echo "|------|------|" >> $GITHUB_STEP_SUMMARY
-          for f in packages/desktop/dist/aiorg-desktop-*; do
+          for f in packages/desktop/dist/ai-org-desktop-*; do
             if [ -f "$f" ]; then
               name=$(basename "$f")
               size=$(du -h "$f" | cut -f1)
@@ -145,8 +140,8 @@ jobs:
 
       - uses: actions/upload-artifact@v4
         with:
-          name: aiorg-desktop-${{ matrix.settings.target }}
-          path: packages/desktop/dist/aiorg-desktop-*
+          name: ai-org-desktop-${{ matrix.settings.target }}
+          path: packages/desktop/dist/ai-org-desktop-*
           if-no-files-found: warn
 
   sanity-check:
@@ -168,7 +163,7 @@ jobs:
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "| Platform | Artifacts |" >> $GITHUB_STEP_SUMMARY
           echo "|----------|-----------|" >> $GITHUB_STEP_SUMMARY
-          for dir in aiorg-desktop-*/; do
+          for dir in ai-org-desktop-*/; do
             if [ -d "$dir" ]; then
               platform=$(basename "$dir")
               count=$(find "$dir" -type f | wc -l | tr -d ' ')
@@ -185,3 +180,46 @@ jobs:
       - name: All builds passed
         if: needs.build-desktop.result == 'success'
         run: echo "All desktop builds completed successfully"
+
+  bundle:
+    name: Create release bundle
+    needs:
+      - build-desktop
+    runs-on: ubuntu-24.04
+    if: always() && needs.build-desktop.result == 'success'
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          path: artifacts
+
+      - name: Organize and bundle
+        shell: bash
+        run: |
+          mkdir -p bundle
+          for dir in artifacts/ai-org-desktop-*/; do
+            target=$(basename "$dir" | sed 's/^ai-org-desktop-//')
+            cp -v "$dir"/ai-org-desktop-* bundle/ 2>/dev/null || true
+          done
+
+      - name: Create zip archive
+        shell: bash
+        run: |
+          VERSION="${{ github.event.inputs.channel || 'prod' }}-${{ github.sha }}"
+          FILENAME="ai-org-desktop-${VERSION}.zip"
+          cd bundle
+          zip -r "../${FILENAME}" .
+          cd ..
+          echo "## Release bundle" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "Filename: \`${FILENAME}\`" >> $GITHUB_STEP_SUMMARY
+          echo "Size: $(du -h "${FILENAME}" | cut -f1)" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "Contents:" >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+          unzip -l "${FILENAME}" >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ai-org-desktop-bundle
+          path: ai-org-desktop-*.zip

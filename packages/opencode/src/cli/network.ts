@@ -20,8 +20,8 @@ const options = {
   },
   "mdns-domain": {
     type: "string" as const,
-    describe: "custom domain name for mDNS service (default: aiorg.local)",
-    default: "aiorg.local",
+    describe: "custom domain name for mDNS service (default: ai-org.local)",
+    default: "ai-org.local",
   },
   cors: {
     type: "string" as const,

@@ -41,7 +41,7 @@ type TuiAttentionHost = TuiAttention & {
 const log = Log.create({ service: "tui.attention" })
 
 const DEFAULT_TITLE = "ai-org"
-const DEFAULT_PACK_ID = "aiorg.default"
+const DEFAULT_PACK_ID = "ai-org.default"
 const KV_SOUND_PACK = "attention_sound_pack"
 const TITLE_LIMIT = 80
 const MESSAGE_LIMIT = 240

@@ -205,7 +205,7 @@ export const TuiThreadCommand = cmd({
             events: undefined,
           }
         : {
-            url: "http://aiorg.internal",
+            url: "http://ai-org.internal",
             fetch: createWorkerFetch(client),
             events: createEventSource(client),
           }
