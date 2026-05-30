@@ -3,11 +3,11 @@
     <picture>
       <source srcset="packages/console/app/src/asset/logo-ornate-dark.svg" media="(prefers-color-scheme: dark)">
       <source srcset="packages/console/app/src/asset/logo-ornate-light.svg" media="(prefers-color-scheme: light)">
-      <img src="packages/console/app/src/asset/logo-ornate-light.svg" alt="OpenCode logo">
+      <img src="packages/console/app/src/asset/logo-ornate-light.svg" alt="AI-org logo">
     </picture>
   </a>
 </p>
-<p align="center">El agente de programación con IA de código abierto.</p>
+<p align="center">AI-org, a fork of opencode optimized for org-mode.</p>
 <p align="center">
   <a href="https://opencode.ai/discord"><img alt="Discord" src="https://img.shields.io/discord/1391832426048651334?style=flat-square&label=discord" /></a>
   <a href="https://www.npmjs.com/package/opencode-ai"><img alt="npm" src="https://img.shields.io/npm/v/opencode-ai?style=flat-square" /></a>
@@ -39,7 +39,7 @@
   <a href="README.vi.md">Tiếng Việt</a>
 </p>
 
-[![OpenCode Terminal UI](packages/web/src/assets/lander/screenshot.png)](https://opencode.ai)
+[![AI-org Terminal UI](packages/web/src/assets/lander/screenshot.png)](https://opencode.ai)
 
 ---
 
@@ -66,7 +66,7 @@ nix run nixpkgs#opencode           # o github:anomalyco/opencode para la rama de
 
 ### App de escritorio (BETA)
 
-OpenCode también está disponible como aplicación de escritorio. Descárgala directamente desde la [página de releases](https://github.com/anomalyco/opencode/releases) o desde [opencode.ai/download](https://opencode.ai/download).
+AI-org también está disponible como aplicación de escritorio. Descárgala directamente desde la [página de releases](https://github.com/anomalyco/opencode/releases) o desde [opencode.ai/download](https://opencode.ai/download).
 
 | Plataforma            | Descarga                           |
 | --------------------- | ---------------------------------- |
@@ -99,7 +99,7 @@ XDG_BIN_DIR=$HOME/.local/bin curl -fsSL https://opencode.ai/install | bash
 
 ### Agentes
 
-OpenCode incluye dos agentes integrados que puedes alternar con la tecla `Tab`.
+AI-org incluye dos agentes integrados que puedes alternar con la tecla `Tab`.
 
 - **build** - Por defecto, agente con acceso completo para tareas de desarrollo
 - **plan** - Agente de solo lectura para análisis y exploración de código
@@ -114,15 +114,15 @@ Más información sobre [agentes](https://opencode.ai/docs/agents).
 
 ### Documentación
 
-Para más información sobre cómo configurar OpenCode, [**ve a nuestra documentación**](https://opencode.ai/docs).
+Para más información sobre cómo configurar AI-org, [**ve a nuestra documentación**](https://opencode.ai/docs).
 
 ### Contribuir
 
-Si te interesa contribuir a OpenCode, lee nuestras [docs de contribución](./CONTRIBUTING.md) antes de enviar un pull request.
+Si te interesa contribuir a AI-org, lee nuestras [docs de contribución](./CONTRIBUTING.md) antes de enviar un pull request.
 
-### Proyectos basados en OpenCode
+### Proyectos basados en AI-org
 
-Si estás trabajando en un proyecto basado en OpenCode y usas "opencode" como parte del nombre, por ejemplo, "opencode-dashboard" u "opencode-mobile", agrega una nota en tu README para aclarar que no está hecho por el equipo de OpenCode y que no está afiliado con nosotros de ninguna manera.
+Si estás trabajando en un proyecto basado en AI-org y usas "opencode" como parte del nombre, por ejemplo, "opencode-dashboard" u "opencode-mobile", agrega una nota en tu README para aclarar que no está hecho por el equipo de AI-org y que no está afiliado con nosotros de ninguna manera.
 
 ---
 

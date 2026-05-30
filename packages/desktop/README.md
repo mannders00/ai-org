@@ -1,6 +1,6 @@
-# OpenCode Desktop
+# AI-org Desktop
 
-The OpenCode Desktop app, built with Electron.
+The AI-org Desktop app, built with Electron.
 
 ## Development
 

@@ -3,11 +3,11 @@
     <picture>
       <source srcset="packages/console/app/src/asset/logo-ornate-dark.svg" media="(prefers-color-scheme: dark)">
       <source srcset="packages/console/app/src/asset/logo-ornate-light.svg" media="(prefers-color-scheme: light)">
-      <img src="packages/console/app/src/asset/logo-ornate-light.svg" alt="OpenCode logo">
+      <img src="packages/console/app/src/asset/logo-ornate-light.svg" alt="AI-org logo">
     </picture>
   </a>
 </p>
-<p align="center">Den open source AI-kodeagent.</p>
+<p align="center">AI-org, a fork of opencode optimized for org-mode.</p>
 <p align="center">
   <a href="https://opencode.ai/discord"><img alt="Discord" src="https://img.shields.io/discord/1391832426048651334?style=flat-square&label=discord" /></a>
   <a href="https://www.npmjs.com/package/opencode-ai"><img alt="npm" src="https://img.shields.io/npm/v/opencode-ai?style=flat-square" /></a>
@@ -39,7 +39,7 @@
   <a href="README.vi.md">Tiếng Việt</a>
 </p>
 
-[![OpenCode Terminal UI](packages/web/src/assets/lander/screenshot.png)](https://opencode.ai)
+[![AI-org Terminal UI](packages/web/src/assets/lander/screenshot.png)](https://opencode.ai)
 
 ---
 
@@ -66,7 +66,7 @@ nix run nixpkgs#opencode           # eller github:anomalyco/opencode for nyeste 
 
 ### Desktop-app (BETA)
 
-OpenCode findes også som desktop-app. Download direkte fra [releases-siden](https://github.com/anomalyco/opencode/releases) eller [opencode.ai/download](https://opencode.ai/download).
+AI-org findes også som desktop-app. Download direkte fra [releases-siden](https://github.com/anomalyco/opencode/releases) eller [opencode.ai/download](https://opencode.ai/download).
 
 | Platform              | Download                           |
 | --------------------- | ---------------------------------- |
@@ -99,7 +99,7 @@ XDG_BIN_DIR=$HOME/.local/bin curl -fsSL https://opencode.ai/install | bash
 
 ### Agents
 
-OpenCode har to indbyggede agents, som du kan skifte mellem med `Tab`-tasten.
+AI-org har to indbyggede agents, som du kan skifte mellem med `Tab`-tasten.
 
 - **build** - Standard, agent med fuld adgang til udviklingsarbejde
 - **plan** - Skrivebeskyttet agent til analyse og kodeudforskning
@@ -114,15 +114,15 @@ Læs mere om [agents](https://opencode.ai/docs/agents).
 
 ### Dokumentation
 
-For mere info om konfiguration af OpenCode, [**se vores docs**](https://opencode.ai/docs).
+For mere info om konfiguration af AI-org, [**se vores docs**](https://opencode.ai/docs).
 
 ### Bidrag
 
-Hvis du vil bidrage til OpenCode, så læs vores [contributing docs](./CONTRIBUTING.md) før du sender en pull request.
+Hvis du vil bidrage til AI-org, så læs vores [contributing docs](./CONTRIBUTING.md) før du sender en pull request.
 
-### Bygget på OpenCode
+### Bygget på AI-org
 
-Hvis du arbejder på et projekt der er relateret til OpenCode og bruger "opencode" som en del af navnet; f.eks. "opencode-dashboard" eller "opencode-mobile", så tilføj en note i din README, der tydeliggør at projektet ikke er bygget af OpenCode-teamet og ikke er tilknyttet os på nogen måde.
+Hvis du arbejder på et projekt der er relateret til AI-org og bruger "opencode" som en del af navnet; f.eks. "opencode-dashboard" eller "opencode-mobile", så tilføj en note i din README, der tydeliggør at projektet ikke er bygget af AI-org-teamet og ikke er tilknyttet os på nogen måde.
 
 ---
 
