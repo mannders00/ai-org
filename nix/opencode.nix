@@ -88,15 +88,15 @@ stdenvNoCC.mkDerivation (finalAttrs: {
   versionCheckProgramArg = "--version";
 
   passthru = {
-    jsonschema = "${placeholder "out"}/share/opencode/schema.json";
+    jsonschema = "${placeholder "out"}/share/ai-org/schema.json";
     env = finalAttrs.env;
   };
 
   meta = {
-    description = "The open source coding agent";
-    homepage = "https://opencode.ai";
+    description = "Plaintext life management powered by org-mode and AI";
+    homepage = "https://ai-org.net";
     license = lib.licenses.mit;
-    mainProgram = "opencode";
+    mainProgram = "ai-org";
     inherit (node_modules.meta) platforms;
   };
 })

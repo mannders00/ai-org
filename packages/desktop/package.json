@@ -4,9 +4,9 @@
   "version": "1.15.12",
   "type": "module",
   "license": "MIT",
-  "homepage": "https://opencode.ai",
+  "homepage": "https://ai-org.net",
   "author": {
-    "name": "OpenCode",
+    "name": "AI Org",
     "email": "hello@opencode.ai"
   },
   "scripts": {

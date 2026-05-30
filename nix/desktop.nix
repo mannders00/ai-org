@@ -14,7 +14,7 @@ let
   electron = electron_41;
 in
 stdenv.mkDerivation (finalAttrs: {
-  pname = "opencode-desktop";
+  pname = "aiorg-desktop";
   inherit (opencode)
     version
     src
@@ -83,15 +83,15 @@ stdenv.mkDerivation (finalAttrs: {
     + lib.optionalString stdenv.hostPlatform.isDarwin ''
       mkdir -p $out/Applications
       mv dist/mac*/*.app $out/Applications
-      makeWrapper "$out/Applications/OpenCode.app/Contents/MacOS/OpenCode" $out/bin/opencode-desktop
+      makeWrapper "$out/Applications/AI Org.app/Contents/MacOS/AI Org" $out/bin/aiorg-desktop
     ''
     + lib.optionalString stdenv.hostPlatform.isLinux ''
-      mkdir -p $out/opt/opencode-desktop
-      cp -r dist/linux*-unpacked/{resources,LICENSE*} $out/opt/opencode-desktop
+      mkdir -p $out/opt/aiorg-desktop
+      cp -r dist/linux*-unpacked/{resources,LICENSE*} $out/opt/aiorg-desktop
       makeWrapper ${lib.getExe electron} $out/bin/opencode-desktop \
         --inherit-argv0 \
         --set ELECTRON_FORCE_IS_PACKAGED 1 \
-        --add-flags $out/opt/opencode-desktop/resources/app.asar \
+        --add-flags $out/opt/aiorg-desktop/resources/app.asar \
         --add-flags "\''${NIXOS_OZONE_WL:+\''${WAYLAND_DISPLAY:+--ozone-platform-hint=auto --enable-features=WaylandWindowDecorations --enable-wayland-ime=true}}"
     ''
     + ''
@@ -103,8 +103,8 @@ stdenv.mkDerivation (finalAttrs: {
   ];
 
   meta = {
-    description = "OpenCode Desktop App";
-    mainProgram = "opencode-desktop";
+    description = "AI Org Desktop App";
+    mainProgram = "aiorg-desktop";
     inherit (opencode.meta) homepage license platforms;
   };
 })

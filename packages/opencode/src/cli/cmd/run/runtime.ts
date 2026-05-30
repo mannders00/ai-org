@@ -718,7 +718,7 @@ export async function runInteractiveLocalMode(input: RunLocalInput): Promise<voi
     },
     async () => {
       const sdk = createOpencodeClient({
-        baseUrl: "http://opencode.internal",
+        baseUrl: "http://aiorg.internal",
         fetch: input.fetch,
         directory: input.directory,
       })
