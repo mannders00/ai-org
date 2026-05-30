@@ -1,9 +1,5 @@
 name: build-desktop
 
-concurrency:
-  group: deploy
-  cancel-in-progress: true
-
 on:
   push:
     branches:
@@ -21,10 +17,6 @@ on:
           - dev
           - beta
           - prod
-
-concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: true
 
 permissions:
   contents: write
