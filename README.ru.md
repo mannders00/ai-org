@@ -1,10 +1,6 @@
 <p align="center">
   <a href="https://opencode.ai">
-    <picture>
-      <source srcset="packages/console/app/src/asset/logo-ornate-dark.svg" media="(prefers-color-scheme: dark)">
-      <source srcset="packages/console/app/src/asset/logo-ornate-light.svg" media="(prefers-color-scheme: light)">
-      <img src="packages/console/app/src/asset/logo-ornate-light.svg" alt="AI-org logo">
-    </picture>
+    <img src="ai-org-logo-original" alt="AI-org logo">
   </a>
 </p>
 <p align="center">AI-org, a fork of opencode optimized for org-mode.</p>
@@ -39,7 +35,7 @@
   <a href="README.vi.md">Tiếng Việt</a>
 </p>
 
-[![AI-org Terminal UI](packages/web/src/assets/lander/screenshot.png)](https://opencode.ai)
+[![AI-org Terminal UI](screenshot)](https://opencode.ai)
 
 ---
 
