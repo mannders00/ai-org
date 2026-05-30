@@ -42,4 +42,4 @@
 - Discord: [discord.gg/HrhjpDUnRE](https://discord.gg/HrhjpDUnRE)
 - Liên hệ: [matt@masoftware.net](mailto:matt@masoftware.net)
 
-© MA Software. All rights reserved.
+© 2026 MA Software. All rights reserved.
