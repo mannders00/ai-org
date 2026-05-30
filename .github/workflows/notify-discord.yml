@@ -1,8 +1,6 @@
 name: notify-discord
 
-on:
-  release:
-    types: [released] # fires when a draft release is published
+on: workflow_dispatch
 
 jobs:
   notify:

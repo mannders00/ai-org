@@ -1,11 +1,6 @@
 name: docs-locale-sync
 
-on:
-  push:
-    branches:
-      - dev
-    paths:
-      - packages/web/src/content/docs/*.mdx
+on: workflow_dispatch
 
 jobs:
   sync-locales:

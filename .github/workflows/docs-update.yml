@@ -1,9 +1,6 @@
 name: docs-update
 
-on:
-  schedule:
-    - cron: "0 */12 * * *"
-  workflow_dispatch:
+on: workflow_dispatch
 
 env:
   LOOKBACK_HOURS: 4

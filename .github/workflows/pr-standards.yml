@@ -1,8 +1,6 @@
 name: pr-standards
 
-on:
-  pull_request_target:
-    types: [opened, edited, synchronize]
+on: workflow_dispatch
 
 jobs:
   check-standards:

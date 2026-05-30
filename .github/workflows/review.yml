@@ -1,8 +1,6 @@
 name: review
 
-on:
-  issue_comment:
-    types: [created]
+on: workflow_dispatch
 
 jobs:
   check-guidelines:
