@@ -1,13 +1,12 @@
 <p align="center">
-  <a href="https://opencode.ai">
+  <a href="https://ai-org.net">
     <img src="ai-org-logo-original.png" alt="Logo do AI-org">
   </a>
 </p>
 <p align="center">AI-org, a fork of opencode optimized for org-mode.</p>
 <p align="center">
-  <a href="https://opencode.ai/discord"><img alt="Discord" src="https://img.shields.io/discord/1391832426048651334?style=flat-square&label=discord" /></a>
-  <a href="https://www.npmjs.com/package/opencode-ai"><img alt="npm" src="https://img.shields.io/npm/v/opencode-ai?style=flat-square" /></a>
-  <a href="https://github.com/anomalyco/opencode/actions/workflows/publish.yml"><img alt="Build status" src="https://img.shields.io/github/actions/workflow/status/anomalyco/opencode/publish.yml?style=flat-square&branch=dev" /></a>
+  <a href="https://discord.gg/HrhjpDUnRE"><img alt="Discord" src="https://img.shields.io/discord/1391832426048651334?style=flat-square&label=discord" /></a>
+  <a href="https://github.com/mannders00/ai-org/actions/workflows/build-desktop.yml"><img alt="Build status" src="https://img.shields.io/github/actions/workflow/status/mannders00/ai-org/build-desktop.yml?style=flat-square&branch=dev" /></a>
 </p>
 
 <p align="center">
@@ -35,91 +34,10 @@
   <a href="README.vi.md">Tiếng Việt</a>
 </p>
 
-[![AI-org Terminal UI](screenshot.png)](https://opencode.ai)
+[![AI-org Terminal UI](screenshot.png)](https://ai-org.net)
 
 ---
 
-### Instalação
-
-```bash
-# YOLO
-curl -fsSL https://opencode.ai/install | bash
-
-# Gerenciadores de pacotes
-npm i -g opencode-ai@latest        # ou bun/pnpm/yarn
-scoop install opencode             # Windows
-choco install opencode             # Windows
-brew install anomalyco/tap/opencode # macOS e Linux (recomendado, sempre atualizado)
-brew install opencode              # macOS e Linux (fórmula oficial do brew, atualiza menos)
-sudo pacman -S opencode            # Arch Linux (Stable)
-paru -S opencode-bin               # Arch Linux (Latest from AUR)
-mise use -g opencode               # qualquer sistema
-nix run nixpkgs#opencode           # ou github:anomalyco/opencode para a branch dev mais recente
-```
-
-> [!TIP]
-> Remova versões anteriores a 0.1.x antes de instalar.
-
-### App desktop (BETA)
-
-O AI-org também está disponível como aplicativo desktop. Baixe diretamente pela [página de releases](https://github.com/anomalyco/opencode/releases) ou em [opencode.ai/download](https://opencode.ai/download).
-
-| Plataforma            | Download                           |
-| --------------------- | ---------------------------------- |
-| macOS (Apple Silicon) | `opencode-desktop-mac-arm64.dmg`   |
-| macOS (Intel)         | `opencode-desktop-mac-x64.dmg`     |
-| Windows               | `opencode-desktop-windows-x64.exe` |
-| Linux                 | `.deb`, `.rpm` ou AppImage         |
-
-```bash
-# macOS (Homebrew)
-brew install --cask opencode-desktop
-# Windows (Scoop)
-scoop bucket add extras; scoop install extras/opencode-desktop
-```
-
-#### Diretório de instalação
-
-O script de instalação respeita a seguinte ordem de prioridade para o caminho de instalação:
-
-1. `$OPENCODE_INSTALL_DIR` - Diretório de instalação personalizado
-2. `$XDG_BIN_DIR` - Caminho compatível com a especificação XDG Base Directory
-3. `$HOME/bin` - Diretório binário padrão do usuário (se existir ou puder ser criado)
-4. `$HOME/.opencode/bin` - Fallback padrão
-
-```bash
-# Exemplos
-OPENCODE_INSTALL_DIR=/usr/local/bin curl -fsSL https://opencode.ai/install | bash
-XDG_BIN_DIR=$HOME/.local/bin curl -fsSL https://opencode.ai/install | bash
-```
-
-### Agents
-
-O AI-org inclui dois agents integrados, que você pode alternar com a tecla `Tab`.
-
-- **build** - Padrão, agent com acesso total para trabalho de desenvolvimento
-- **plan** - Agent somente leitura para análise e exploração de código
-  - Nega edições de arquivos por padrão
-  - Pede permissão antes de executar comandos bash
-  - Ideal para explorar codebases desconhecidas ou planejar mudanças
-
-Também há um subagent **general** para buscas complexas e tarefas em várias etapas.
-Ele é usado internamente e pode ser invocado com `@general` nas mensagens.
-
-Saiba mais sobre [agents](https://opencode.ai/docs/agents).
-
-### Documentação
-
-Para mais informações sobre como configurar o AI-org, [**veja nossa documentação**](https://opencode.ai/docs).
-
-### Contribuir
-
-Se você tem interesse em contribuir com o AI-org, leia os [contributing docs](./CONTRIBUTING.md) antes de enviar um pull request.
-
-### Construindo com AI-org
-
-Se você estiver trabalhando em um projeto relacionado ao AI-org e estiver usando "opencode" como parte do nome (por exemplo, "opencode-dashboard" ou "opencode-mobile"), adicione uma nota no README para deixar claro que não foi construído pela equipe do AI-org e não é afiliado a nós de nenhuma forma.
-
----
-
-**Junte-se à nossa comunidade** [Discord](https://discord.gg/opencode) | [X.com](https://x.com/opencode)
+- Website: [ai-org.net](https://ai-org.net)
+- Discord: [discord.gg/HrhjpDUnRE](https://discord.gg/HrhjpDUnRE)
+- Contact: [matt@masoftware.net](mailto:matt@masoftware.net)

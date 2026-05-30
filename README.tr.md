@@ -1,13 +1,12 @@
 <p align="center">
-  <a href="https://opencode.ai">
+  <a href="https://ai-org.net">
     <img src="ai-org-logo-original.png" alt="AI-org logo">
   </a>
 </p>
 <p align="center">AI-org, a fork of opencode optimized for org-mode.</p>
 <p align="center">
-  <a href="https://opencode.ai/discord"><img alt="Discord" src="https://img.shields.io/discord/1391832426048651334?style=flat-square&label=discord" /></a>
-  <a href="https://www.npmjs.com/package/opencode-ai"><img alt="npm" src="https://img.shields.io/npm/v/opencode-ai?style=flat-square" /></a>
-  <a href="https://github.com/anomalyco/opencode/actions/workflows/publish.yml"><img alt="Build status" src="https://img.shields.io/github/actions/workflow/status/anomalyco/opencode/publish.yml?style=flat-square&branch=dev" /></a>
+  <a href="https://discord.gg/HrhjpDUnRE"><img alt="Discord" src="https://img.shields.io/discord/1391832426048651334?style=flat-square&label=discord" /></a>
+  <a href="https://github.com/mannders00/ai-org/actions/workflows/build-desktop.yml"><img alt="Build status" src="https://img.shields.io/github/actions/workflow/status/mannders00/ai-org/build-desktop.yml?style=flat-square&branch=dev" /></a>
 </p>
 
 <p align="center">
@@ -35,91 +34,10 @@
   <a href="README.vi.md">Tiếng Việt</a>
 </p>
 
-[![AI-org Terminal UI](screenshot.png)](https://opencode.ai)
+[![AI-org Terminal UI](screenshot.png)](https://ai-org.net)
 
 ---
 
-### Kurulum
-
-```bash
-# YOLO
-curl -fsSL https://opencode.ai/install | bash
-
-# Paket yöneticileri
-npm i -g opencode-ai@latest        # veya bun/pnpm/yarn
-scoop install opencode             # Windows
-choco install opencode             # Windows
-brew install anomalyco/tap/opencode # macOS ve Linux (önerilir, her zaman güncel)
-brew install opencode              # macOS ve Linux (resmi brew formülü, daha az güncellenir)
-sudo pacman -S opencode            # Arch Linux (Stable)
-paru -S opencode-bin               # Arch Linux (Latest from AUR)
-mise use -g opencode               # Tüm işletim sistemleri
-nix run nixpkgs#opencode           # veya en güncel geliştirme dalı için github:anomalyco/opencode
-```
-
-> [!TIP]
-> Kurulumdan önce 0.1.x'ten eski sürümleri kaldırın.
-
-### Masaüstü Uygulaması (BETA)
-
-AI-org ayrıca masaüstü uygulaması olarak da mevcuttur. Doğrudan [sürüm sayfasından](https://github.com/anomalyco/opencode/releases) veya [opencode.ai/download](https://opencode.ai/download) adresinden indirebilirsiniz.
-
-| Platform              | İndirme                            |
-| --------------------- | ---------------------------------- |
-| macOS (Apple Silicon) | `opencode-desktop-mac-arm64.dmg`   |
-| macOS (Intel)         | `opencode-desktop-mac-x64.dmg`     |
-| Windows               | `opencode-desktop-windows-x64.exe` |
-| Linux                 | `.deb`, `.rpm` veya AppImage       |
-
-```bash
-# macOS (Homebrew)
-brew install --cask opencode-desktop
-# Windows (Scoop)
-scoop bucket add extras; scoop install extras/opencode-desktop
-```
-
-#### Kurulum Dizini (Installation Directory)
-
-Kurulum betiği (install script), kurulum yolu (installation path) için aşağıdaki öncelik sırasını takip eder:
-
-1. `$OPENCODE_INSTALL_DIR` - Özel kurulum dizini
-2. `$XDG_BIN_DIR` - XDG Base Directory Specification uyumlu yol
-3. `$HOME/bin` - Standart kullanıcı binary dizini (varsa veya oluşturulabiliyorsa)
-4. `$HOME/.opencode/bin` - Varsayılan yedek konum
-
-```bash
-# Örnekler
-OPENCODE_INSTALL_DIR=/usr/local/bin curl -fsSL https://opencode.ai/install | bash
-XDG_BIN_DIR=$HOME/.local/bin curl -fsSL https://opencode.ai/install | bash
-```
-
-### Ajanlar
-
-AI-org, `Tab` tuşuyla aralarında geçiş yapabileceğiniz iki yerleşik (built-in) ajan içerir.
-
-- **build** - Varsayılan, geliştirme çalışmaları için tam erişimli ajan
-- **plan** - Analiz ve kod keşfi için salt okunur ajan
-  - Varsayılan olarak dosya düzenlemelerini reddeder
-  - Bash komutlarını çalıştırmadan önce izin ister
-  - Tanımadığınız kod tabanlarını keşfetmek veya değişiklikleri planlamak için ideal
-
-Ayrıca, karmaşık aramalar ve çok adımlı görevler için bir **genel** alt ajan bulunmaktadır.
-Bu dahili olarak kullanılır ve mesajlarda `@general` ile çağrılabilir.
-
-[Ajanlar](https://opencode.ai/docs/agents) hakkında daha fazla bilgi edinin.
-
-### Dokümantasyon
-
-AI-org'u nasıl yapılandıracağınız hakkında daha fazla bilgi için [**dokümantasyonumuza göz atın**](https://opencode.ai/docs).
-
-### Katkıda Bulunma
-
-AI-org'a katkıda bulunmak istiyorsanız, lütfen bir pull request göndermeden önce [katkıda bulunma dokümanlarımızı](./CONTRIBUTING.md) okuyun.
-
-### AI-org Üzerine Geliştirme
-
-AI-org ile ilgili bir proje üzerinde çalışıyorsanız ve projenizin adının bir parçası olarak "opencode" kullanıyorsanız (örneğin, "opencode-dashboard" veya "opencode-mobile"), lütfen README dosyanıza projenin AI-org ekibi tarafından geliştirilmediğini ve bizimle hiçbir şekilde bağlantılı olmadığını belirten bir not ekleyin.
-
----
-
-**Topluluğumuza katılın** [Discord](https://discord.gg/opencode) | [X.com](https://x.com/opencode)
+- Website: [ai-org.net](https://ai-org.net)
+- Discord: [discord.gg/HrhjpDUnRE](https://discord.gg/HrhjpDUnRE)
+- Contact: [matt@masoftware.net](mailto:matt@masoftware.net)

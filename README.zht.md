@@ -1,13 +1,12 @@
 <p align="center">
-  <a href="https://opencode.ai">
+  <a href="https://ai-org.net">
     <img src="ai-org-logo-original.png" alt="AI-org logo">
   </a>
 </p>
 <p align="center">AI-org, a fork of opencode optimized for org-mode.</p>
 <p align="center">
-  <a href="https://opencode.ai/discord"><img alt="Discord" src="https://img.shields.io/discord/1391832426048651334?style=flat-square&label=discord" /></a>
-  <a href="https://www.npmjs.com/package/opencode-ai"><img alt="npm" src="https://img.shields.io/npm/v/opencode-ai?style=flat-square" /></a>
-  <a href="https://github.com/anomalyco/opencode/actions/workflows/publish.yml"><img alt="Build status" src="https://img.shields.io/github/actions/workflow/status/anomalyco/opencode/publish.yml?style=flat-square&branch=dev" /></a>
+  <a href="https://discord.gg/HrhjpDUnRE"><img alt="Discord" src="https://img.shields.io/discord/1391832426048651334?style=flat-square&label=discord" /></a>
+  <a href="https://github.com/mannders00/ai-org/actions/workflows/build-desktop.yml"><img alt="Build status" src="https://img.shields.io/github/actions/workflow/status/mannders00/ai-org/build-desktop.yml?style=flat-square&branch=dev" /></a>
 </p>
 
 <p align="center">
@@ -35,90 +34,10 @@
   <a href="README.vi.md">Tiếng Việt</a>
 </p>
 
-[![AI-org Terminal UI](screenshot.png)](https://opencode.ai)
+[![AI-org Terminal UI](screenshot.png)](https://ai-org.net)
 
 ---
 
-### 安裝
-
-```bash
-# 直接安裝 (YOLO)
-curl -fsSL https://opencode.ai/install | bash
-
-# 套件管理員
-npm i -g opencode-ai@latest        # 也可使用 bun/pnpm/yarn
-scoop install opencode             # Windows
-choco install opencode             # Windows
-brew install anomalyco/tap/opencode # macOS 與 Linux（推薦，始終保持最新）
-brew install opencode              # macOS 與 Linux（官方 brew formula，更新頻率較低）
-sudo pacman -S opencode            # Arch Linux (Stable)
-paru -S opencode-bin               # Arch Linux (Latest from AUR)
-mise use -g opencode               # 任何作業系統
-nix run nixpkgs#opencode           # 或使用 github:anomalyco/opencode 以取得最新開發分支
-```
-
-> [!TIP]
-> 安裝前請先移除 0.1.x 以前的舊版本。
-
-### 桌面應用程式 (BETA)
-
-AI-org 也提供桌面版應用程式。您可以直接從 [發佈頁面 (releases page)](https://github.com/anomalyco/opencode/releases) 或 [opencode.ai/download](https://opencode.ai/download) 下載。
-
-| 平台                  | 下載連結                           |
-| --------------------- | ---------------------------------- |
-| macOS (Apple Silicon) | `opencode-desktop-mac-arm64.dmg`   |
-| macOS (Intel)         | `opencode-desktop-mac-x64.dmg`     |
-| Windows               | `opencode-desktop-windows-x64.exe` |
-| Linux                 | `.deb`, `.rpm`, 或 AppImage        |
-
-```bash
-# macOS (Homebrew Cask)
-brew install --cask opencode-desktop
-# Windows (Scoop)
-scoop bucket add extras; scoop install extras/opencode-desktop
-```
-
-#### 安裝目錄
-
-安裝腳本會依據以下優先順序決定安裝路徑：
-
-1. `$OPENCODE_INSTALL_DIR` - 自定義安裝目錄
-2. `$XDG_BIN_DIR` - 符合 XDG 基礎目錄規範的路徑
-3. `$HOME/bin` - 標準使用者執行檔目錄 (若存在或可建立)
-4. `$HOME/.opencode/bin` - 預設備用路徑
-
-```bash
-# 範例
-OPENCODE_INSTALL_DIR=/usr/local/bin curl -fsSL https://opencode.ai/install | bash
-XDG_BIN_DIR=$HOME/.local/bin curl -fsSL https://opencode.ai/install | bash
-```
-
-### Agents
-
-AI-org 內建了兩種 Agent，您可以使用 `Tab` 鍵快速切換。
-
-- **build** - 預設模式，具備完整權限的 Agent，適用於開發工作。
-- **plan** - 唯讀模式，適用於程式碼分析與探索。
-  - 預設禁止修改檔案。
-  - 執行 bash 指令前會詢問權限。
-  - 非常適合用來探索陌生的程式碼庫或規劃變更。
-
-此外，AI-org 還包含一個 **general** 子 Agent，用於處理複雜搜尋與多步驟任務。此 Agent 供系統內部使用，亦可透過在訊息中輸入 `@general` 來呼叫。
-
-了解更多關於 [Agents](https://opencode.ai/docs/agents) 的資訊。
-
-### 線上文件
-
-關於如何設定 AI-org 的詳細資訊，請參閱我們的 [**官方文件**](https://opencode.ai/docs)。
-
-### 參與貢獻
-
-如果您有興趣參與 AI-org 的開發，請在提交 Pull Request 前先閱讀我們的 [貢獻指南 (Contributing Docs)](./CONTRIBUTING.md)。
-
-### 基於 AI-org 進行開發
-
-如果您正在開發與 AI-org 相關的專案，並在名稱中使用了 "opencode"（例如 "opencode-dashboard" 或 "opencode-mobile"），請在您的 README 中加入聲明，說明該專案並非由 AI-org 團隊開發，且與我們沒有任何隸屬關係。
-
----
-
-**加入我們的社群** [飞书](https://applink.feishu.cn/client/chat/chatter/add_by_link?link_token=738j8655-cd59-4633-a30a-1124e0096789&qr_code=true) | [X.com](https://x.com/opencode)
+- Website: [ai-org.net](https://ai-org.net)
+- Discord: [discord.gg/HrhjpDUnRE](https://discord.gg/HrhjpDUnRE)
+- Contact: [matt@masoftware.net](mailto:matt@masoftware.net)

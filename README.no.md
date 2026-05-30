@@ -1,13 +1,12 @@
 <p align="center">
-  <a href="https://opencode.ai">
+  <a href="https://ai-org.net">
     <img src="ai-org-logo-original.png" alt="AI-org logo">
   </a>
 </p>
 <p align="center">AI-org, a fork of opencode optimized for org-mode.</p>
 <p align="center">
-  <a href="https://opencode.ai/discord"><img alt="Discord" src="https://img.shields.io/discord/1391832426048651334?style=flat-square&label=discord" /></a>
-  <a href="https://www.npmjs.com/package/opencode-ai"><img alt="npm" src="https://img.shields.io/npm/v/opencode-ai?style=flat-square" /></a>
-  <a href="https://github.com/anomalyco/opencode/actions/workflows/publish.yml"><img alt="Build status" src="https://img.shields.io/github/actions/workflow/status/anomalyco/opencode/publish.yml?style=flat-square&branch=dev" /></a>
+  <a href="https://discord.gg/HrhjpDUnRE"><img alt="Discord" src="https://img.shields.io/discord/1391832426048651334?style=flat-square&label=discord" /></a>
+  <a href="https://github.com/mannders00/ai-org/actions/workflows/build-desktop.yml"><img alt="Build status" src="https://img.shields.io/github/actions/workflow/status/mannders00/ai-org/build-desktop.yml?style=flat-square&branch=dev" /></a>
 </p>
 
 <p align="center">
@@ -35,91 +34,10 @@
   <a href="README.vi.md">Tiếng Việt</a>
 </p>
 
-[![AI-org Terminal UI](screenshot.png)](https://opencode.ai)
+[![AI-org Terminal UI](screenshot.png)](https://ai-org.net)
 
 ---
 
-### Installasjon
-
-```bash
-# YOLO
-curl -fsSL https://opencode.ai/install | bash
-
-# Pakkehåndterere
-npm i -g opencode-ai@latest        # eller bun/pnpm/yarn
-scoop install opencode             # Windows
-choco install opencode             # Windows
-brew install anomalyco/tap/opencode # macOS og Linux (anbefalt, alltid oppdatert)
-brew install opencode              # macOS og Linux (offisiell brew-formel, oppdateres sjeldnere)
-sudo pacman -S opencode            # Arch Linux (Stable)
-paru -S opencode-bin               # Arch Linux (Latest from AUR)
-mise use -g opencode               # alle OS
-nix run nixpkgs#opencode           # eller github:anomalyco/opencode for nyeste dev-branch
-```
-
-> [!TIP]
-> Fjern versjoner eldre enn 0.1.x før du installerer.
-
-### Desktop-app (BETA)
-
-AI-org er også tilgjengelig som en desktop-app. Last ned direkte fra [releases-siden](https://github.com/anomalyco/opencode/releases) eller [opencode.ai/download](https://opencode.ai/download).
-
-| Plattform             | Nedlasting                         |
-| --------------------- | ---------------------------------- |
-| macOS (Apple Silicon) | `opencode-desktop-mac-arm64.dmg`   |
-| macOS (Intel)         | `opencode-desktop-mac-x64.dmg`     |
-| Windows               | `opencode-desktop-windows-x64.exe` |
-| Linux                 | `.deb`, `.rpm` eller AppImage      |
-
-```bash
-# macOS (Homebrew)
-brew install --cask opencode-desktop
-# Windows (Scoop)
-scoop bucket add extras; scoop install extras/opencode-desktop
-```
-
-#### Installasjonsmappe
-
-Installasjonsskriptet bruker følgende prioritet for installasjonsstien:
-
-1. `$OPENCODE_INSTALL_DIR` - Egendefinert installasjonsmappe
-2. `$XDG_BIN_DIR` - Sti som følger XDG Base Directory Specification
-3. `$HOME/bin` - Standard brukerbinar-mappe (hvis den finnes eller kan opprettes)
-4. `$HOME/.opencode/bin` - Standard fallback
-
-```bash
-# Eksempler
-OPENCODE_INSTALL_DIR=/usr/local/bin curl -fsSL https://opencode.ai/install | bash
-XDG_BIN_DIR=$HOME/.local/bin curl -fsSL https://opencode.ai/install | bash
-```
-
-### Agents
-
-AI-org har to innebygde agents du kan bytte mellom med `Tab`-tasten.
-
-- **build** - Standard, agent med full tilgang for utviklingsarbeid
-- **plan** - Skrivebeskyttet agent for analyse og kodeutforsking
-  - Nekter filendringer som standard
-  - Spør om tillatelse før bash-kommandoer
-  - Ideell for å utforske ukjente kodebaser eller planlegge endringer
-
-Det finnes også en **general**-subagent for komplekse søk og flertrinnsoppgaver.
-Den brukes internt og kan kalles via `@general` i meldinger.
-
-Les mer om [agents](https://opencode.ai/docs/agents).
-
-### Dokumentasjon
-
-For mer info om hvordan du konfigurerer AI-org, [**se dokumentasjonen**](https://opencode.ai/docs).
-
-### Bidra
-
-Hvis du vil bidra til AI-org, les [contributing docs](./CONTRIBUTING.md) før du sender en pull request.
-
-### Bygge på AI-org
-
-Hvis du jobber med et prosjekt som er relatert til AI-org og bruker "opencode" som en del av navnet; for eksempel "opencode-dashboard" eller "opencode-mobile", legg inn en merknad i README som presiserer at det ikke er bygget av AI-org-teamet og ikke er tilknyttet oss på noen måte.
-
----
-
-**Bli med i fellesskapet** [Discord](https://discord.gg/opencode) | [X.com](https://x.com/opencode)
+- Website: [ai-org.net](https://ai-org.net)
+- Discord: [discord.gg/HrhjpDUnRE](https://discord.gg/HrhjpDUnRE)
+- Contact: [matt@masoftware.net](mailto:matt@masoftware.net)

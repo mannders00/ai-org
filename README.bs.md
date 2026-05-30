@@ -1,13 +1,12 @@
 <p align="center">
-  <a href="https://opencode.ai">
+  <a href="https://ai-org.net">
     <img src="ai-org-logo-original.png" alt="AI-org logo">
   </a>
 </p>
 <p align="center">AI-org, a fork of opencode optimized for org-mode.</p>
 <p align="center">
-  <a href="https://opencode.ai/discord"><img alt="Discord" src="https://img.shields.io/discord/1391832426048651334?style=flat-square&label=discord" /></a>
-  <a href="https://www.npmjs.com/package/opencode-ai"><img alt="npm" src="https://img.shields.io/npm/v/opencode-ai?style=flat-square" /></a>
-  <a href="https://github.com/anomalyco/opencode/actions/workflows/publish.yml"><img alt="Build status" src="https://img.shields.io/github/actions/workflow/status/anomalyco/opencode/publish.yml?style=flat-square&branch=dev" /></a>
+  <a href="https://discord.gg/HrhjpDUnRE"><img alt="Discord" src="https://img.shields.io/discord/1391832426048651334?style=flat-square&label=discord" /></a>
+  <a href="https://github.com/mannders00/ai-org/actions/workflows/build-desktop.yml"><img alt="Build status" src="https://img.shields.io/github/actions/workflow/status/mannders00/ai-org/build-desktop.yml?style=flat-square&branch=dev" /></a>
 </p>
 
 <p align="center">
@@ -35,91 +34,10 @@
   <a href="README.vi.md">Tiếng Việt</a>
 </p>
 
-[![AI-org Terminal UI](screenshot.png)](https://opencode.ai)
+[![AI-org Terminal UI](screenshot.png)](https://ai-org.net)
 
 ---
 
-### Instalacija
-
-```bash
-# YOLO
-curl -fsSL https://opencode.ai/install | bash
-
-# Package manageri
-npm i -g opencode-ai@latest        # ili bun/pnpm/yarn
-scoop install opencode             # Windows
-choco install opencode             # Windows
-brew install anomalyco/tap/opencode # macOS i Linux (preporučeno, uvijek ažurno)
-brew install opencode              # macOS i Linux (zvanična brew formula, rjeđe se ažurira)
-sudo pacman -S opencode            # Arch Linux (Stable)
-paru -S opencode-bin               # Arch Linux (Latest from AUR)
-mise use -g opencode               # Bilo koji OS
-nix run nixpkgs#opencode           # ili github:anomalyco/opencode za najnoviji dev branch
-```
-
-> [!TIP]
-> Ukloni verzije starije od 0.1.x prije instalacije.
-
-### Desktop aplikacija (BETA)
-
-AI-org je dostupan i kao desktop aplikacija. Preuzmi je direktno sa [stranice izdanja](https://github.com/anomalyco/opencode/releases) ili sa [opencode.ai/download](https://opencode.ai/download).
-
-| Platforma             | Preuzimanje                        |
-| --------------------- | ---------------------------------- |
-| macOS (Apple Silicon) | `opencode-desktop-mac-arm64.dmg`   |
-| macOS (Intel)         | `opencode-desktop-mac-x64.dmg`     |
-| Windows               | `opencode-desktop-windows-x64.exe` |
-| Linux                 | `.deb`, `.rpm`, ili AppImage       |
-
-```bash
-# macOS (Homebrew)
-brew install --cask opencode-desktop
-# Windows (Scoop)
-scoop bucket add extras; scoop install extras/opencode-desktop
-```
-
-#### Instalacijski direktorij
-
-Instalacijska skripta koristi sljedeći redoslijed prioriteta za putanju instalacije:
-
-1. `$OPENCODE_INSTALL_DIR` - Prilagođeni instalacijski direktorij
-2. `$XDG_BIN_DIR` - Putanja usklađena sa XDG Base Directory specifikacijom
-3. `$HOME/bin` - Standardni korisnički bin direktorij (ako postoji ili se može kreirati)
-4. `$HOME/.opencode/bin` - Podrazumijevana rezervna lokacija
-
-```bash
-# Primjeri
-OPENCODE_INSTALL_DIR=/usr/local/bin curl -fsSL https://opencode.ai/install | bash
-XDG_BIN_DIR=$HOME/.local/bin curl -fsSL https://opencode.ai/install | bash
-```
-
-### Agenti
-
-AI-org uključuje dva ugrađena agenta između kojih možeš prebacivati tasterom `Tab`.
-
-- **build** - Podrazumijevani agent sa punim pristupom za razvoj
-- **plan** - Agent samo za čitanje za analizu i istraživanje koda
-  - Podrazumijevano zabranjuje izmjene datoteka
-  - Traži dozvolu prije pokretanja bash komandi
-  - Idealan za istraživanje nepoznatih codebase-ova ili planiranje izmjena
-
-Uključen je i **general** pod-agent za složene pretrage i višekoračne zadatke.
-Koristi se interno i može se pozvati pomoću `@general` u porukama.
-
-Saznaj više o [agentima](https://opencode.ai/docs/agents).
-
-### Dokumentacija
-
-Za više informacija o konfiguraciji AI-org-a, [**pogledaj dokumentaciju**](https://opencode.ai/docs).
-
-### Doprinosi
-
-Ako želiš doprinositi AI-org-u, pročitaj [upute za doprinošenje](./CONTRIBUTING.md) prije slanja pull requesta.
-
-### Gradnja na AI-org-u
-
-Ako radiš na projektu koji je povezan s AI-org-om i koristi "opencode" kao dio naziva, npr. "opencode-dashboard" ili "opencode-mobile", dodaj napomenu u svoj README da projekat nije napravio AI-org tim i da nije povezan s nama.
-
----
-
-**Pridruži se našoj zajednici** [Discord](https://discord.gg/opencode) | [X.com](https://x.com/opencode)
+- Website: [ai-org.net](https://ai-org.net)
+- Discord: [discord.gg/HrhjpDUnRE](https://discord.gg/HrhjpDUnRE)
+- Contact: [matt@masoftware.net](mailto:matt@masoftware.net)
