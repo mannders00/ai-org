@@ -36,6 +36,8 @@
 
 [![AI-org Terminal UI](screenshot.png)](https://ai-org.net)
 
+[![AI-org Terminal UI](screenshot-2.png)](https://ai-org.net)
+
 ---
 
 - 網站：[ai-org.net](https://ai-org.net)
