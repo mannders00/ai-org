@@ -5,7 +5,7 @@
 </p>
 <p align="center">AI-org, ένα fork του opencode, βελτιστοποιημένο για org-mode.</p>
 <p align="center">
-  <a href="https://discord.gg/HrhjpDUnRE"><img alt="Discord" src="https://img.shields.io/discord/1391832426048651334?style=flat-square&label=discord" /></a>
+  <a href="https://discord.gg/HrhjpDUnRE"><img alt="Discord" src="https://img.shields.io/badge/discord-chat?style=flat-square&color=5865F2&logo=discord" /></a>
   <a href="https://github.com/mannders00/ai-org/actions/workflows/build-desktop.yml"><img alt="Build status" src="https://img.shields.io/github/actions/workflow/status/mannders00/ai-org/build-desktop.yml?style=flat-square&branch=dev" /></a>
 </p>
 
