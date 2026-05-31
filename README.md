@@ -38,8 +38,17 @@
 
 ---
 
-> **Want the fastest path to a working system?**
-> Get the [official AI-org template on Gumroad](https://masoftwarematt.gumroad.com/l/ai-org). It includes the battle-tested `AGENTS.md`, `HUMAN.md`, and complete project scaffolding I use daily.
+## Heads up — the repo isn't the whole product
+
+You're looking at the source code, which is free. But if you actually want to be productive with this tool immediately, you should probably go to **[ai-org.net](https://ai-org.net)** cause you'll get:
+
+- **Desktop builds** — Mac, Windows, Linux, no terminal needed
+- **`AGENTS.md` & `HUMAN.md`** — these are actually pretty crucial. they're the project scaffolding that makes AI coding work reliably instead of sporadically, and they come filled out in a PARA structure project ready to go
+- **Clean user's guide** — so you're not digging through source code to figure out config
+
+The code alone won't get you far. Those files will.
+
+---
 
 - Website: [ai-org.net](https://ai-org.net)
 - Discord: [discord.gg/HrhjpDUnRE](https://discord.gg/HrhjpDUnRE)
